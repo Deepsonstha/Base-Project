@@ -14,13 +14,19 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc({
     required this.getUserUsecase,
   }) : super(const ProfileState.initial()) {
-    on<FetchProfileEvent>(_fetchProfile);
+    // on<FetchProfileEvent>(_fetchProfile);
+    on<FetchProfileEvent>(
+      (event, emit) => event.when(
+        profileFetch: () => _fetchProfile(event, emit),
+      ),
+    );
   }
 
   Future<void> _fetchProfile(
     FetchProfileEvent event,
     Emitter<ProfileState> emit,
   ) async {
+    emit(const ProfileState.loading());
     final result = await getUserUsecase.call(null);
     result.fold(
       (error) {
