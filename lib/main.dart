@@ -1,12 +1,14 @@
 import 'package:base_project/config/routes/routes.dart';
 import 'package:base_project/core/bloc_providers/bloc_providers.dart';
 import 'package:base_project/core/dependency_injection/dependecy_injection.dart';
+import 'package:base_project/core/network_services/local_service/hive/hive_setup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await setUpHive();
   await setUpLocator();
 
   runApp(

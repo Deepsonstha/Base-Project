@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:base_project/core/errors_handler/error_handler.dart';
 import 'package:base_project/features/profile/domain/entity/user_entity.dart';
 import 'package:base_project/features/profile/domain/usecase/get_user_usecase.dart';
@@ -13,8 +15,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final GetUserUsecase getUserUsecase;
   ProfileBloc({
     required this.getUserUsecase,
-  }) : super(const ProfileState.initial()) {
-    // on<FetchProfileEvent>(_fetchProfile);
+  }) : super(ProfileState.initially()) {
     on<FetchProfileEvent>(
       (event, emit) => event.when(
         profileFetch: () => _fetchProfile(event, emit),
@@ -26,15 +27,32 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     FetchProfileEvent event,
     Emitter<ProfileState> emit,
   ) async {
-    emit(const ProfileState.loading());
-    final result = await getUserUsecase.call(null);
-    result.fold(
-      (error) {
-        emit(ProfileState.error(error: AppErrorHandler(message: error.message)));
-      },
-      (success) {
-        emit(ProfileState.success(userlist: success));
-      },
-    );
+    final result = getUserUsecase.call(null);
+
+    await for (final event in result) {
+      event.fold(
+        (l) => emit(
+          state.copyWith(
+            isLoadingState: false,
+            errorState: AppErrorHandler(
+              message: l.message.toString(),
+            ),
+          ),
+        ),
+        (r) {
+          log("blocSream ::$r");
+
+          emit(
+            state.copyWith(
+              isLoadingState: false,
+              isSuccessState: true,
+              userList: r,
+            ),
+          );
+
+          log("blocSream updated userList ::${state.userList}");
+        },
+      );
+    }
   }
 }

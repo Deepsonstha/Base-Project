@@ -4,6 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BlocProvidersList {
   static final blocProviderList = [
-    BlocProvider<ProfileBloc>(create: (context) => locator<ProfileBloc>()),
+    BlocProvider<ProfileBloc>(create: (context) => locator<ProfileBloc>()..add(const FetchProfileEvent())),
   ];
 }

@@ -15,8 +15,8 @@ class DioClient {
     dio
       ..options.baseUrl = ApiEndpoint.baseURL
       ..options.headers = ApiEndpoint.header
-      ..options.connectTimeout = const Duration(milliseconds: ApiEndpoint.connectionTimeout)
-      ..options.receiveTimeout = const Duration(milliseconds: ApiEndpoint.receiveTimeout)
+      ..options.connectTimeout = const Duration(seconds: ApiEndpoint.connectionTimeout)
+      ..options.receiveTimeout = const Duration(seconds: ApiEndpoint.receiveTimeout)
       ..options.responseType = ResponseType.json
       ..interceptors.add(
         PrettyDioLogger(
@@ -27,6 +27,7 @@ class DioClient {
         ),
       )
       ..interceptors.add(DioInterceptor());
+    // (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () => HttpClient()..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
   }
 
   // Public static method to access the singleton instance

@@ -166,55 +166,13 @@ abstract class FetchProfileEvent implements ProfileEvent {
 
 /// @nodoc
 mixin _$ProfileState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<UserEntity> userlist) success,
-    required TResult Function(AppErrorHandler error) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<UserEntity> userlist)? success,
-    TResult? Function(AppErrorHandler error)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<UserEntity> userlist)? success,
-    TResult Function(AppErrorHandler error)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileInitialState value) initial,
-    required TResult Function(ProfileLoadingState value) loading,
-    required TResult Function(ProfileSuccessState value) success,
-    required TResult Function(ProfileErrorState value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileInitialState value)? initial,
-    TResult? Function(ProfileLoadingState value)? loading,
-    TResult? Function(ProfileSuccessState value)? success,
-    TResult? Function(ProfileErrorState value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileInitialState value)? initial,
-    TResult Function(ProfileLoadingState value)? loading,
-    TResult Function(ProfileSuccessState value)? success,
-    TResult Function(ProfileErrorState value)? error,
-    required TResult orElse(),
-  }) =>
+  bool get isLoadingState => throw _privateConstructorUsedError;
+  bool get isSuccessState => throw _privateConstructorUsedError;
+  List<UserEntity>? get userList => throw _privateConstructorUsedError;
+  AppErrorHandler? get errorState => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ProfileStateCopyWith<ProfileState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -223,6 +181,12 @@ abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
           ProfileState value, $Res Function(ProfileState) then) =
       _$ProfileStateCopyWithImpl<$Res, ProfileState>;
+  @useResult
+  $Res call(
+      {bool isLoadingState,
+      bool isSuccessState,
+      List<UserEntity>? userList,
+      AppErrorHandler? errorState});
 }
 
 /// @nodoc
@@ -234,535 +198,165 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoadingState = null,
+    Object? isSuccessState = null,
+    Object? userList = freezed,
+    Object? errorState = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isLoadingState: null == isLoadingState
+          ? _value.isLoadingState
+          : isLoadingState // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSuccessState: null == isSuccessState
+          ? _value.isSuccessState
+          : isSuccessState // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userList: freezed == userList
+          ? _value.userList
+          : userList // ignore: cast_nullable_to_non_nullable
+              as List<UserEntity>?,
+      errorState: freezed == errorState
+          ? _value.errorState
+          : errorState // ignore: cast_nullable_to_non_nullable
+              as AppErrorHandler?,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$ProfileInitialStateImplCopyWith<$Res> {
-  factory _$$ProfileInitialStateImplCopyWith(_$ProfileInitialStateImpl value,
-          $Res Function(_$ProfileInitialStateImpl) then) =
-      __$$ProfileInitialStateImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ProfileInitialStateImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileInitialStateImpl>
-    implements _$$ProfileInitialStateImplCopyWith<$Res> {
-  __$$ProfileInitialStateImplCopyWithImpl(_$ProfileInitialStateImpl _value,
-      $Res Function(_$ProfileInitialStateImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ProfileInitialStateImpl implements ProfileInitialState {
-  const _$ProfileInitialStateImpl();
-
+abstract class _$$ProfileStateImplCopyWith<$Res>
+    implements $ProfileStateCopyWith<$Res> {
+  factory _$$ProfileStateImplCopyWith(
+          _$ProfileStateImpl value, $Res Function(_$ProfileStateImpl) then) =
+      __$$ProfileStateImplCopyWithImpl<$Res>;
   @override
-  String toString() {
-    return 'ProfileState.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ProfileInitialStateImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<UserEntity> userlist) success,
-    required TResult Function(AppErrorHandler error) error,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<UserEntity> userlist)? success,
-    TResult? Function(AppErrorHandler error)? error,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<UserEntity> userlist)? success,
-    TResult Function(AppErrorHandler error)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileInitialState value) initial,
-    required TResult Function(ProfileLoadingState value) loading,
-    required TResult Function(ProfileSuccessState value) success,
-    required TResult Function(ProfileErrorState value) error,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileInitialState value)? initial,
-    TResult? Function(ProfileLoadingState value)? loading,
-    TResult? Function(ProfileSuccessState value)? success,
-    TResult? Function(ProfileErrorState value)? error,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileInitialState value)? initial,
-    TResult Function(ProfileLoadingState value)? loading,
-    TResult Function(ProfileSuccessState value)? success,
-    TResult Function(ProfileErrorState value)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ProfileInitialState implements ProfileState {
-  const factory ProfileInitialState() = _$ProfileInitialStateImpl;
-}
-
-/// @nodoc
-abstract class _$$ProfileLoadingStateImplCopyWith<$Res> {
-  factory _$$ProfileLoadingStateImplCopyWith(_$ProfileLoadingStateImpl value,
-          $Res Function(_$ProfileLoadingStateImpl) then) =
-      __$$ProfileLoadingStateImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ProfileLoadingStateImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileLoadingStateImpl>
-    implements _$$ProfileLoadingStateImplCopyWith<$Res> {
-  __$$ProfileLoadingStateImplCopyWithImpl(_$ProfileLoadingStateImpl _value,
-      $Res Function(_$ProfileLoadingStateImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ProfileLoadingStateImpl implements ProfileLoadingState {
-  const _$ProfileLoadingStateImpl();
-
-  @override
-  String toString() {
-    return 'ProfileState.loading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ProfileLoadingStateImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<UserEntity> userlist) success,
-    required TResult Function(AppErrorHandler error) error,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<UserEntity> userlist)? success,
-    TResult? Function(AppErrorHandler error)? error,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<UserEntity> userlist)? success,
-    TResult Function(AppErrorHandler error)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileInitialState value) initial,
-    required TResult Function(ProfileLoadingState value) loading,
-    required TResult Function(ProfileSuccessState value) success,
-    required TResult Function(ProfileErrorState value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileInitialState value)? initial,
-    TResult? Function(ProfileLoadingState value)? loading,
-    TResult? Function(ProfileSuccessState value)? success,
-    TResult? Function(ProfileErrorState value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileInitialState value)? initial,
-    TResult Function(ProfileLoadingState value)? loading,
-    TResult Function(ProfileSuccessState value)? success,
-    TResult Function(ProfileErrorState value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ProfileLoadingState implements ProfileState {
-  const factory ProfileLoadingState() = _$ProfileLoadingStateImpl;
-}
-
-/// @nodoc
-abstract class _$$ProfileSuccessStateImplCopyWith<$Res> {
-  factory _$$ProfileSuccessStateImplCopyWith(_$ProfileSuccessStateImpl value,
-          $Res Function(_$ProfileSuccessStateImpl) then) =
-      __$$ProfileSuccessStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<UserEntity> userlist});
+  $Res call(
+      {bool isLoadingState,
+      bool isSuccessState,
+      List<UserEntity>? userList,
+      AppErrorHandler? errorState});
 }
 
 /// @nodoc
-class __$$ProfileSuccessStateImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileSuccessStateImpl>
-    implements _$$ProfileSuccessStateImplCopyWith<$Res> {
-  __$$ProfileSuccessStateImplCopyWithImpl(_$ProfileSuccessStateImpl _value,
-      $Res Function(_$ProfileSuccessStateImpl) _then)
+class __$$ProfileStateImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateImpl>
+    implements _$$ProfileStateImplCopyWith<$Res> {
+  __$$ProfileStateImplCopyWithImpl(
+      _$ProfileStateImpl _value, $Res Function(_$ProfileStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userlist = null,
+    Object? isLoadingState = null,
+    Object? isSuccessState = null,
+    Object? userList = freezed,
+    Object? errorState = freezed,
   }) {
-    return _then(_$ProfileSuccessStateImpl(
-      userlist: null == userlist
-          ? _value._userlist
-          : userlist // ignore: cast_nullable_to_non_nullable
-              as List<UserEntity>,
+    return _then(_$ProfileStateImpl(
+      isLoadingState: null == isLoadingState
+          ? _value.isLoadingState
+          : isLoadingState // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSuccessState: null == isSuccessState
+          ? _value.isSuccessState
+          : isSuccessState // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userList: freezed == userList
+          ? _value._userList
+          : userList // ignore: cast_nullable_to_non_nullable
+              as List<UserEntity>?,
+      errorState: freezed == errorState
+          ? _value.errorState
+          : errorState // ignore: cast_nullable_to_non_nullable
+              as AppErrorHandler?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ProfileSuccessStateImpl implements ProfileSuccessState {
-  const _$ProfileSuccessStateImpl({required final List<UserEntity> userlist})
-      : _userlist = userlist;
+class _$ProfileStateImpl implements _ProfileState {
+  const _$ProfileStateImpl(
+      {this.isLoadingState = false,
+      this.isSuccessState = false,
+      final List<UserEntity>? userList = const [],
+      this.errorState})
+      : _userList = userList;
 
-  final List<UserEntity> _userlist;
   @override
-  List<UserEntity> get userlist {
-    if (_userlist is EqualUnmodifiableListView) return _userlist;
+  @JsonKey()
+  final bool isLoadingState;
+  @override
+  @JsonKey()
+  final bool isSuccessState;
+  final List<UserEntity>? _userList;
+  @override
+  @JsonKey()
+  List<UserEntity>? get userList {
+    final value = _userList;
+    if (value == null) return null;
+    if (_userList is EqualUnmodifiableListView) return _userList;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_userlist);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
+  final AppErrorHandler? errorState;
+
+  @override
   String toString() {
-    return 'ProfileState.success(userlist: $userlist)';
+    return 'ProfileState(isLoadingState: $isLoadingState, isSuccessState: $isSuccessState, userList: $userList, errorState: $errorState)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProfileSuccessStateImpl &&
-            const DeepCollectionEquality().equals(other._userlist, _userlist));
+            other is _$ProfileStateImpl &&
+            (identical(other.isLoadingState, isLoadingState) ||
+                other.isLoadingState == isLoadingState) &&
+            (identical(other.isSuccessState, isSuccessState) ||
+                other.isSuccessState == isSuccessState) &&
+            const DeepCollectionEquality().equals(other._userList, _userList) &&
+            (identical(other.errorState, errorState) ||
+                other.errorState == errorState));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_userlist));
+  int get hashCode => Object.hash(runtimeType, isLoadingState, isSuccessState,
+      const DeepCollectionEquality().hash(_userList), errorState);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProfileSuccessStateImplCopyWith<_$ProfileSuccessStateImpl> get copyWith =>
-      __$$ProfileSuccessStateImplCopyWithImpl<_$ProfileSuccessStateImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<UserEntity> userlist) success,
-    required TResult Function(AppErrorHandler error) error,
-  }) {
-    return success(userlist);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<UserEntity> userlist)? success,
-    TResult? Function(AppErrorHandler error)? error,
-  }) {
-    return success?.call(userlist);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<UserEntity> userlist)? success,
-    TResult Function(AppErrorHandler error)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(userlist);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileInitialState value) initial,
-    required TResult Function(ProfileLoadingState value) loading,
-    required TResult Function(ProfileSuccessState value) success,
-    required TResult Function(ProfileErrorState value) error,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileInitialState value)? initial,
-    TResult? Function(ProfileLoadingState value)? loading,
-    TResult? Function(ProfileSuccessState value)? success,
-    TResult? Function(ProfileErrorState value)? error,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileInitialState value)? initial,
-    TResult Function(ProfileLoadingState value)? loading,
-    TResult Function(ProfileSuccessState value)? success,
-    TResult Function(ProfileErrorState value)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
+  _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>
+      __$$ProfileStateImplCopyWithImpl<_$ProfileStateImpl>(this, _$identity);
 }
 
-abstract class ProfileSuccessState implements ProfileState {
-  const factory ProfileSuccessState(
-      {required final List<UserEntity> userlist}) = _$ProfileSuccessStateImpl;
+abstract class _ProfileState implements ProfileState {
+  const factory _ProfileState(
+      {final bool isLoadingState,
+      final bool isSuccessState,
+      final List<UserEntity>? userList,
+      final AppErrorHandler? errorState}) = _$ProfileStateImpl;
 
-  List<UserEntity> get userlist;
+  @override
+  bool get isLoadingState;
+  @override
+  bool get isSuccessState;
+  @override
+  List<UserEntity>? get userList;
+  @override
+  AppErrorHandler? get errorState;
+  @override
   @JsonKey(ignore: true)
-  _$$ProfileSuccessStateImplCopyWith<_$ProfileSuccessStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ProfileErrorStateImplCopyWith<$Res> {
-  factory _$$ProfileErrorStateImplCopyWith(_$ProfileErrorStateImpl value,
-          $Res Function(_$ProfileErrorStateImpl) then) =
-      __$$ProfileErrorStateImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({AppErrorHandler error});
-}
-
-/// @nodoc
-class __$$ProfileErrorStateImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileErrorStateImpl>
-    implements _$$ProfileErrorStateImplCopyWith<$Res> {
-  __$$ProfileErrorStateImplCopyWithImpl(_$ProfileErrorStateImpl _value,
-      $Res Function(_$ProfileErrorStateImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$ProfileErrorStateImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as AppErrorHandler,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ProfileErrorStateImpl implements ProfileErrorState {
-  const _$ProfileErrorStateImpl({required this.error});
-
-  @override
-  final AppErrorHandler error;
-
-  @override
-  String toString() {
-    return 'ProfileState.error(error: $error)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ProfileErrorStateImpl &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ProfileErrorStateImplCopyWith<_$ProfileErrorStateImpl> get copyWith =>
-      __$$ProfileErrorStateImplCopyWithImpl<_$ProfileErrorStateImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<UserEntity> userlist) success,
-    required TResult Function(AppErrorHandler error) error,
-  }) {
-    return error(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<UserEntity> userlist)? success,
-    TResult? Function(AppErrorHandler error)? error,
-  }) {
-    return error?.call(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<UserEntity> userlist)? success,
-    TResult Function(AppErrorHandler error)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this.error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileInitialState value) initial,
-    required TResult Function(ProfileLoadingState value) loading,
-    required TResult Function(ProfileSuccessState value) success,
-    required TResult Function(ProfileErrorState value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileInitialState value)? initial,
-    TResult? Function(ProfileLoadingState value)? loading,
-    TResult? Function(ProfileSuccessState value)? success,
-    TResult? Function(ProfileErrorState value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileInitialState value)? initial,
-    TResult Function(ProfileLoadingState value)? loading,
-    TResult Function(ProfileSuccessState value)? success,
-    TResult Function(ProfileErrorState value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ProfileErrorState implements ProfileState {
-  const factory ProfileErrorState({required final AppErrorHandler error}) =
-      _$ProfileErrorStateImpl;
-
-  AppErrorHandler get error;
-  @JsonKey(ignore: true)
-  _$$ProfileErrorStateImplCopyWith<_$ProfileErrorStateImpl> get copyWith =>
+  _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
