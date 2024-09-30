@@ -23,8 +23,12 @@ mixin _$GeoEntity {
   String? get lat => throw _privateConstructorUsedError;
   String? get lng => throw _privateConstructorUsedError;
 
+  /// Serializes this GeoEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GeoEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GeoEntityCopyWith<GeoEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$GeoEntityCopyWithImpl<$Res, $Val extends GeoEntity>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GeoEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$GeoEntityImplCopyWithImpl<$Res>
       _$GeoEntityImpl _value, $Res Function(_$GeoEntityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GeoEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,11 +139,13 @@ class _$GeoEntityImpl implements _GeoEntity {
             (identical(other.lng, lng) || other.lng == lng));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, lat, lng);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GeoEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GeoEntityImplCopyWith<_$GeoEntityImpl> get copyWith =>
@@ -160,8 +170,11 @@ abstract class _GeoEntity implements GeoEntity {
   String? get lat;
   @override
   String? get lng;
+
+  /// Create a copy of GeoEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GeoEntityImplCopyWith<_$GeoEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

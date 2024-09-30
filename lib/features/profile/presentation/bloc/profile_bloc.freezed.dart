@@ -66,6 +66,9 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -82,6 +85,9 @@ class __$$FetchProfileEventImplCopyWithImpl<$Res>
   __$$FetchProfileEventImplCopyWithImpl(_$FetchProfileEventImpl _value,
       $Res Function(_$FetchProfileEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -168,10 +174,12 @@ abstract class FetchProfileEvent implements ProfileEvent {
 mixin _$ProfileState {
   bool get isLoadingState => throw _privateConstructorUsedError;
   bool get isSuccessState => throw _privateConstructorUsedError;
-  List<UserEntity>? get userList => throw _privateConstructorUsedError;
+  List<UserEntity> get userList => throw _privateConstructorUsedError;
   AppErrorHandler? get errorState => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -185,7 +193,7 @@ abstract class $ProfileStateCopyWith<$Res> {
   $Res call(
       {bool isLoadingState,
       bool isSuccessState,
-      List<UserEntity>? userList,
+      List<UserEntity> userList,
       AppErrorHandler? errorState});
 }
 
@@ -199,12 +207,14 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isLoadingState = null,
     Object? isSuccessState = null,
-    Object? userList = freezed,
+    Object? userList = null,
     Object? errorState = freezed,
   }) {
     return _then(_value.copyWith(
@@ -216,10 +226,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.isSuccessState
           : isSuccessState // ignore: cast_nullable_to_non_nullable
               as bool,
-      userList: freezed == userList
+      userList: null == userList
           ? _value.userList
           : userList // ignore: cast_nullable_to_non_nullable
-              as List<UserEntity>?,
+              as List<UserEntity>,
       errorState: freezed == errorState
           ? _value.errorState
           : errorState // ignore: cast_nullable_to_non_nullable
@@ -239,7 +249,7 @@ abstract class _$$ProfileStateImplCopyWith<$Res>
   $Res call(
       {bool isLoadingState,
       bool isSuccessState,
-      List<UserEntity>? userList,
+      List<UserEntity> userList,
       AppErrorHandler? errorState});
 }
 
@@ -251,12 +261,14 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
       _$ProfileStateImpl _value, $Res Function(_$ProfileStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isLoadingState = null,
     Object? isSuccessState = null,
-    Object? userList = freezed,
+    Object? userList = null,
     Object? errorState = freezed,
   }) {
     return _then(_$ProfileStateImpl(
@@ -268,10 +280,10 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
           ? _value.isSuccessState
           : isSuccessState // ignore: cast_nullable_to_non_nullable
               as bool,
-      userList: freezed == userList
+      userList: null == userList
           ? _value._userList
           : userList // ignore: cast_nullable_to_non_nullable
-              as List<UserEntity>?,
+              as List<UserEntity>,
       errorState: freezed == errorState
           ? _value.errorState
           : errorState // ignore: cast_nullable_to_non_nullable
@@ -286,7 +298,7 @@ class _$ProfileStateImpl implements _ProfileState {
   const _$ProfileStateImpl(
       {this.isLoadingState = false,
       this.isSuccessState = false,
-      final List<UserEntity>? userList = const [],
+      final List<UserEntity> userList = const [],
       this.errorState})
       : _userList = userList;
 
@@ -296,15 +308,13 @@ class _$ProfileStateImpl implements _ProfileState {
   @override
   @JsonKey()
   final bool isSuccessState;
-  final List<UserEntity>? _userList;
+  final List<UserEntity> _userList;
   @override
   @JsonKey()
-  List<UserEntity>? get userList {
-    final value = _userList;
-    if (value == null) return null;
+  List<UserEntity> get userList {
     if (_userList is EqualUnmodifiableListView) return _userList;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_userList);
   }
 
   @override
@@ -333,7 +343,9 @@ class _$ProfileStateImpl implements _ProfileState {
   int get hashCode => Object.hash(runtimeType, isLoadingState, isSuccessState,
       const DeepCollectionEquality().hash(_userList), errorState);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>
@@ -344,7 +356,7 @@ abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
       {final bool isLoadingState,
       final bool isSuccessState,
-      final List<UserEntity>? userList,
+      final List<UserEntity> userList,
       final AppErrorHandler? errorState}) = _$ProfileStateImpl;
 
   @override
@@ -352,11 +364,14 @@ abstract class _ProfileState implements ProfileState {
   @override
   bool get isSuccessState;
   @override
-  List<UserEntity>? get userList;
+  List<UserEntity> get userList;
   @override
   AppErrorHandler? get errorState;
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

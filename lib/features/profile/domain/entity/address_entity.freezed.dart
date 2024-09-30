@@ -26,8 +26,12 @@ mixin _$AddressEntity {
   String? get zipcode => throw _privateConstructorUsedError;
   GeoEntity? get geo => throw _privateConstructorUsedError;
 
+  /// Serializes this AddressEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddressEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AddressEntityCopyWith<AddressEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$AddressEntityCopyWithImpl<$Res, $Val extends AddressEntity>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AddressEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class _$AddressEntityCopyWithImpl<$Res, $Val extends AddressEntity>
     ) as $Val);
   }
 
+  /// Create a copy of AddressEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GeoEntityCopyWith<$Res>? get geo {
@@ -131,6 +139,8 @@ class __$$AddressEntityImplCopyWithImpl<$Res>
       _$AddressEntityImpl _value, $Res Function(_$AddressEntityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddressEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -202,12 +212,14 @@ class _$AddressEntityImpl implements _AddressEntity {
             (identical(other.geo, geo) || other.geo == geo));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, street, suite, city, zipcode, geo);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddressEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressEntityImplCopyWith<_$AddressEntityImpl> get copyWith =>
@@ -242,8 +254,11 @@ abstract class _AddressEntity implements AddressEntity {
   String? get zipcode;
   @override
   GeoEntity? get geo;
+
+  /// Create a copy of AddressEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddressEntityImplCopyWith<_$AddressEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

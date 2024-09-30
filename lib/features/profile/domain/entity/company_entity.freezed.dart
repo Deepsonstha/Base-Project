@@ -24,8 +24,12 @@ mixin _$CompanyEntity {
   String? get catchPhrase => throw _privateConstructorUsedError;
   String? get bs => throw _privateConstructorUsedError;
 
+  /// Serializes this CompanyEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompanyEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CompanyEntityCopyWith<CompanyEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$CompanyEntityCopyWithImpl<$Res, $Val extends CompanyEntity>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CompanyEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$CompanyEntityImplCopyWithImpl<$Res>
       _$CompanyEntityImpl _value, $Res Function(_$CompanyEntityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompanyEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -147,11 +155,13 @@ class _$CompanyEntityImpl implements _CompanyEntity {
             (identical(other.bs, bs) || other.bs == bs));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, catchPhrase, bs);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompanyEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CompanyEntityImplCopyWith<_$CompanyEntityImpl> get copyWith =>
@@ -180,8 +190,11 @@ abstract class _CompanyEntity implements CompanyEntity {
   String? get catchPhrase;
   @override
   String? get bs;
+
+  /// Create a copy of CompanyEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CompanyEntityImplCopyWith<_$CompanyEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

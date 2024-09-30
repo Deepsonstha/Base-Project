@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:base_project/features/profile/presentation/bloc/profile_bloc.dart';
+import 'package:base_project/features/see_testing/cubit/sse_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,51 +18,65 @@ class _ProfileScreenState extends State<ProfileScreen> {
         return context.read<ProfileBloc>().add(const FetchProfileEvent());
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Users Profile"),
-        ),
-        body: BlocBuilder<ProfileBloc, ProfileState>(
-          builder: (context, state) {
-            log("UIlist ::${state.userList}");
-            if (state.userList!.isEmpty) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            if (state.errorState != null) {
-              return Center(child: Text(state.errorState!.message));
-            }
+          appBar: AppBar(
+            title: const Text("Users Profile"),
+          ),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    context.read<SseCubit>().subscribeSSE();
+                  },
+                  child: const Text("SSE CALLED"),
+                ),
+              ),
+            ],
+          )
 
-            return ListView.builder(
-              itemCount: state.userList?.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  leading: const CircleAvatar(
-                    child: Icon(Icons.person_2),
-                  ),
-                  title: Text(state.userList![index].name.toString()),
-                  subtitle: Text(state.userList![index].email.toString()),
-                );
-              },
-            );
-            // state.when(
-            //   initial: () => const Center(child: CircularProgressIndicator()),
-            //   loading: () => const Center(child: CircularProgressIndicator()),
-            // success: (userlist) => ListView.builder(
-            //   itemCount: userlist.length,
-            //   itemBuilder: (context, index) {
-            //     return ListTile(
-            //       leading: const CircleAvatar(
-            //         child: Icon(Icons.person_2),
-            //       ),
-            //       title: Text(userlist[index].name.toString()),
-            //       subtitle: Text(userlist[index].email.toString()),
-            //     );
-            //   },
-            // ),
-            // error: (error) => Center(child: Text(error.message)),
-            // );
-          },
-        ),
-      ),
+          //  BlocBuilder<ProfileBloc, ProfileState>(
+          //   builder: (context, state) {
+          //     log("UIlist ::${state.userList}");
+          //     if (state.userList.isEmpty) {
+          //       return const Center(child: CircularProgressIndicator());
+          //     }
+          //     if (state.errorState != null) {
+          //       return Center(child: Text(state.errorState!.message));
+          //     }
+
+          //     return ListView.builder(
+          //       itemCount: state.userList.length,
+          //       itemBuilder: (context, index) {
+          //         return ListTile(
+          //           leading: const CircleAvatar(
+          //             child: Icon(Icons.person_2),
+          //           ),
+          //           title: Text(state.userList[index].name.toString()),
+          //           subtitle: Text(state.userList[index].email.toString()),
+          //         );
+          //       },
+          //     );
+          //     // state.when(
+          //     //   initial: () => const Center(child: CircularProgressIndicator()),
+          //     //   loading: () => const Center(child: CircularProgressIndicator()),
+          //     // success: (userlist) => ListView.builder(
+          //     //   itemCount: userlist.length,
+          //     //   itemBuilder: (context, index) {
+          //     //     return ListTile(
+          //     //       leading: const CircleAvatar(
+          //     //         child: Icon(Icons.person_2),
+          //     //       ),
+          //     //       title: Text(userlist[index].name.toString()),
+          //     //       subtitle: Text(userlist[index].email.toString()),
+          //     //     );
+          //     //   },
+          //     // ),
+          //     // error: (error) => Center(child: Text(error.message)),
+          //     // );
+          //   },
+          // ),
+          ),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:base_project/core/logers/loggers.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -17,19 +16,19 @@ class DioInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    longDebugPrint(
-      '$_greenColor[API Request] --> URL: ${options.baseUrl}${options.path}\n'
-      'Method: ${options.method}\n'
-      'Headers: ${options.headers}\n'
-      'Query Parameters: ${options.queryParameters}\n'
-      'Body: ${options.data}$_resetColor',
-    );
+    // longDebugPrint(
+    //   '$_greenColor[API Request] --> URL: ${options.baseUrl}${options.path}\n'
+    //   'Method: ${options.method}\n'
+    //   'Headers: ${options.headers}\n'
+    //   'Query Parameters: ${options.queryParameters}\n'
+    //   'Body: ${options.data}$_resetColor',
+    // );
     super.onRequest(options, handler);
   }
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    responseLogger(response: response);
+    // responseLogger(response: response);
     super.onResponse(response, handler);
   }
 
