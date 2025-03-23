@@ -1,10 +1,13 @@
+import 'package:base_project/features/custom_showcase_view/my_showcase_view.dart';
 import 'package:base_project/features/profile/presentation/pages/profile_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 class AppRoute {
   static const String homeRoute = "/home";
   static const String profileRoute = "/profile";
   static const String thirdRoute = "/third";
+  static const String showCaseview = "/showCaseview";
 
   GoRouter router = GoRouter(
     initialLocation: profileRoute,
@@ -13,6 +16,15 @@ class AppRoute {
         path: profileRoute,
         builder: (context, state) {
           return const ProfileScreen();
+        },
+      ),
+
+      GoRoute(
+        path: showCaseview,
+        builder: (context, state) {
+          return ShowCaseWidget(
+            builder: (context) => const MyHomePage(title: "My Home"),
+          );
         },
       ),
       // GoRoute(
